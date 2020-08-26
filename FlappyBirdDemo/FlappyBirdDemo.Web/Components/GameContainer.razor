@@ -1,0 +1,23 @@
+﻿<div class="game-container" @onclick="_gameManager.StartGame">
+    <div class="sky">
+        <Bird Model="_gameManager.Bird" />
+    </div>
+    <div class="ground"></div>
+
+    <Pipe Model="_gameManager.Pipe" />
+
+</div>
+
+@code {
+
+    GameManager _gameManager;
+    
+
+    protected override void OnInitialized()
+    {
+        _gameManager = new GameManager();
+        _gameManager.MainLoopCompleted += (o, e) => StateHasChanged();
+    }
+
+
+}
